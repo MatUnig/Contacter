@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div>Contact Form
+</div>
+<div>
+    <form th:action="@{/contact/add}" th:object="${contact}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <p>First name: <input type="text" th:field="*{firstName}"/></p>
+        <p>Last name:        <input type="text" th:field="*{lastName}"/></p>
+        <p>E-mail: <input type="email" th:field="*{email}"/></p>
+        <p>Password: <input type="password" th:field="*{password}"/></p>
+        <select th:field="*{category}">Category
+            <option th:value="służbowy" th:text="służbowy" ></option>
+            <option th:value="prywatny" th:text="prywatny" ></option>
+            <option th:value="inny" th:text="inny" ></option>
+        </select>
+        <!--<div th:switch="${contact.category}">-->
+            <!--<p th:case="'służbowy'"></p>-->
+            <!--&lt;!&ndash;         https://o7planning.org/en/11659/thymeleaf-form-select-option-example#a14065280&ndash;&gt;-->
+        <!--</div>-->
+        <p>Subcategory: <input type="text" th:field="*{subcategory}"/></p>
+        <p>Phone number: <input type="text" th:field="*{phone}"/></p>
+        <p>Birthday: <input type="date" th:field="*{birthday}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+</div>
+</div>
+</body>
+</html>

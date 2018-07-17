@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+    function toggle_visibility(hide) {
+        var e = document.getElementsByClassName(hide);
+        for (var i = 0; i < e.length; i++){
+        if(e[i].style.display == '')
+            e[i].style.display = 'none';
+        else
+            e[i].style.display = '';
+    }}
+</script>
+<div>
+    <table>
+        <tr th:each="contact: ${contacts}">
+            <td th:text="${contact.firstName}"/>
+            <td th:text="${contact.lastName}"/>
+            <td th:class="${contact.id}" style="display: none;" th:text="${contact.email}"/>
+            <td th:class="${contact.id}" style="display: none;" th:text="${contact.category}"/>
+            <td th:class="${contact.id}" style="display: none;" th:text="${contact.subcategory}"/>
+            <td th:class="${contact.id}" style="display: none;" th:text="${contact.phone}"/>
+            <td th:class="${contact.id}" style="display: none;" th:text="${contact.birthday}"/>
+            <td><button th:onclick="'javascript:toggle_visibility(\'' + ${contact.id} + '\');'">Show/Hide Details</button></td>
+            <td sec:authorize="isAuthenticated()">
+                <a th:href="@{/contact/details/{id}/(id=${contact.id})}">Show full details</a>
+                <a th:href="@{/contact/update/{id}/(id=${contact.id})}">Edit</a>
+                <a th:href="@{/contact/delete/{id}/(id=${contact.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a sec:authorize="isAuthenticated()" th:href="@{/contact/add}">Add new contact</a>
+</div>
+</body>
+</html>

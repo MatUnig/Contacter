@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<h3>Contact details</h3>
+<table>
+<div th:object="${thisContact}">
+    <p>First name: <span th:text="*{firstName}"/></p>
+    <p>Last name: <span th:text="*{lastName}"/></p>
+    <p>E-mail:  <span th:text="*{email}"/></p>
+    <p>Password: <span th:="*{password}"/></p>
+    <p>Category: <span th:text="*{category}"/></p>
+    <p>Subcategory: <span th:text="*{subcategory}"/></p>
+    <p>Phone number: <span th:text="*{phone}"/></p>
+    <p>Birthday: <span th:text="*{birthday}"/></p>
+    <a th:href="@{/contact/delete/{id}/(id=*{id})}">Delete</a>
+    <a th:href="@{/contact/update/{id}/(id=*{id})}">Edit</a>
+    <a th:href="@{/contact/short}">Back</a>
+</div>
+</table>
+</body>
+</html>

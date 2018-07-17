@@ -1,0 +1,15 @@
+<!DOCTYPE    HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome - Contacter</title>
+</head>
+<body>
+<p th:text="'Welcome in Contacter'"/>
+<div>
+<a th:href="@{/user/login}">Login</a>
+<a th:href="@{/user/add}">Register</a>
+<a th:href="@{/contact/short}">Show contacts</a>
+</div>
+</body>
+</html>
