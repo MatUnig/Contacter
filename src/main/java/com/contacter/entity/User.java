@@ -2,6 +2,7 @@ package com.contacter.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity(name = "users")
@@ -9,6 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Size(min=2, max=40)
     private String firstName;
     private String lastName;
     @Column(nullable = false, unique = true)

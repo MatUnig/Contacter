@@ -1,10 +1,10 @@
 package com.contacter.repository;
 
-import com.contacter.entity.Role;
+import com.contacter.entity.Subcategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
-    Role findByName(String name);
+public interface SubcategoryRepository extends JpaRepository<Subcategory, Long> {
+
 }

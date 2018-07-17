@@ -33,7 +33,7 @@ public class UserController {
     @PostMapping("/add")
     public String performForm(@ModelAttribute @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "user/add";
+            return "userForm";
         }
         userService.saveUser(user);
         return "redirect:/";

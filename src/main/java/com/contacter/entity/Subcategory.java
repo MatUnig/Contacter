@@ -3,15 +3,15 @@ package com.contacter.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "subcategory")
+public class Subcategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "role_id")
+    @Column(name = "subcategory_id")
     private Long id;
-    @Column(name = "role")
+    @Column(name = "subcategory")
     private String name;
-
 
     public Long getId() {
         return id;
@@ -25,7 +25,7 @@ public class Role {
         return name;
     }
 
-    public void setName(String name) {
+    public void setSubcategory(String name) {
         this.name = name;
     }
 }
