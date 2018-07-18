@@ -42,12 +42,13 @@
         <option th:value="inny" th:text="inny"></option>
     </select>
     <p>Subcategory:
-        <select id="selected" th:field="*{subcategory}" disabled="true">
-        <option th:each="subcategory: ${subcategory}" th:value="${subcategory.name}"
-                th:text="${subcategory.name}"></option>
-        </select></p>
+        <select id="selected" th:field="*{subcategory}">
+            <option th:each="subcategory: ${subcategory}" th:value="${subcategory.name}"
+                    th:text="${subcategory.name}"></option>
+        </select>
+    </p>
     <p>Other:
-    <input id="other" type="text" th:field="*{subcategory}" disabled="true"/></p>
+        <input id="other" type="text" th:field="*{subcategory}" disabled="true"/></p>
     <p>Phone number: <input type="text" th:field="*{phone}"/></p>
     <p th:errors="*{phone}"></p>
     <p>Birthday: <input type="date" th:field="*{birthday}"/></p>

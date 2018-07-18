@@ -1,7 +1,10 @@
 package com.contacter.entity;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
@@ -10,11 +13,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Size(min=2, max=40)
+    @NotBlank
+    @Size(min=2, max=30)
     private String firstName;
+    @NotBlank
+    @Size(min=2, max=40)
     private String lastName;
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
+    @NotBlank
     private String username;
+    @NotBlank
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Hasło musi zawierac minimum 8 znaków, 1 cyfrę, 1 wielką literę oraz jeden znak specjalny")
     private String password;
     private int enabled;
     @ManyToMany(cascade = {

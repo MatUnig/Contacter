@@ -1,6 +1,7 @@
 package com.contacter.web;
 
 import com.contacter.entity.Contact;
+import com.contacter.entity.Subcategory;
 import com.contacter.repository.ContactRepository;
 import com.contacter.repository.SubcategoryRepository;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,9 @@ public class ContactController {
         return "contact/form";
     }
     @PostMapping("/add")
-    public String perform(@ModelAttribute @Valid Contact contact, BindingResult result) {
+    public String perform(@ModelAttribute @Valid Contact contact, BindingResult result, Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("subcategory", subcategoryRepository.findAll());
             return "contact/form";
         }
         contactRepository.save(contact);

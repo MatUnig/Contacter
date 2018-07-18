@@ -27,35 +27,35 @@
 </div>
 <form th:action="@{/contact/add}" th:object="${contact}" method="post">
     <input type="hidden" th:field="*{id}"/>
-    <p>First name: <input type="text" th:field="*{firstName}"/></p>
-    <p th:errors="*{firstName}"></p>
-    <p>Last name: <input type="text" th:field="*{lastName}"/></p>
-    <p th:errors="*{lastName}"></p>
+    <p>Imię : <input type="text" th:field="*{firstName}"/></p>
+    <p class="error" th:errors="*{firstName}"></p>
+    <p>Nazwisko: <input type="text" th:field="*{lastName}"/></p>
+    <p class="error" th:errors="*{lastName}"></p>
     <p>E-mail: <input type="email" th:field="*{email}"/></p>
-    <p th:errors="*{email}"></p>
-    <p>Password: <input type="password" th:field="*{password}"/></p>
-    <p th:errors="*{password}"></p>
-    <p>Category</p>
+    <p class="error" th:errors="*{email}"></p>
+    <p>Hasło: <input type="password" th:field="*{password}"/></p>
+    <p class="error" th:errors="*{password}"></p>
+    <p>Kategoria: </p>
     <select th:id="options" th:field="*{category}" th:onchange="'javascript:selector()'">
         <option th:value="służbowy" th:text="służbowy"></option>
         <option th:value="prywatny" th:text="prywatny"></option>
         <option th:value="inny" th:text="inny"></option>
     </select>
-    <p>Subcategory:
-        <select id="selected" th:field="*{subcategory}" disabled="true">
-        <option th:each="subcategory: ${subcategory}" th:value="${subcategory.name}"
-                th:text="${subcategory.name}"></option>
-        </select></p>
-    <p>Other:
-    <input id="other" type="text" th:field="*{subcategory}" disabled="true"/></p>
-    <p>Phone number: <input type="text" th:field="*{phone}"/></p>
-    <p th:errors="*{phone}"></p>
-    <p>Birthday: <input type="date" th:field="*{birthday}"/></p>
-    <p th:errors="*{birthday}"></p>
+    <p>Podkategoria: </p>
+        <select id="selected" th:field="*{subcategory}">
+            <option th:each="subcategory: ${subcategory}" th:value="${subcategory.name}"
+                    th:text="${subcategory.name}"></option>
+        </select>
+    <p>Inna:
+        <input id="other" type="text" th:field="*{subcategory}" disabled="true"/></p>
+    <p>Numer komórkowy: <input type="text" th:field="*{phone}"/></p>
+    <p class="error" th:errors="*{phone}"></p>
+    <p>Data urodzenia: <input type="date" th:field="*{birthday}"/></p>
+    <p class="error" th:errors="*{birthday}"></p>
     <p><input type="submit" value="Submit"/></p>
 </form>
 </div>
-<a th:href="@{/contact/short}">Back to contacts</a>
+<a th:href="@{/contact/short}">Powrót do kontaktów</a>
 </div>
 </body>
 </html>

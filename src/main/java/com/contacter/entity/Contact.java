@@ -1,8 +1,10 @@
 package com.contacter.entity;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
 
 @Entity
@@ -10,14 +12,20 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
     private String password;
     @Column(unique = true)
+    @Email
+    @NotBlank
     private String email;
+    @NotBlank
     private String category;
     private String subcategory;
-    private int phone;
+    @Pattern(regexp = "^(?:\\(?\\+?48)?(?:[-\\.\\(\\)\\s]*(\\d)){9}\\)?$", message="Niepoprawny format numeru.")
+    private String phone;
     private Date birthday;
     public String getPassword() {
         return password;
@@ -74,10 +82,10 @@ public class Contact {
         this.subcategory = subcategory;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
