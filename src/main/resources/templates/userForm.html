@@ -4,6 +4,17 @@
     <meta charset="utf-8">
 </head>
 <body>
+<script>
+    function checkPassword(event)
+    {
+        var pass=  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        var input= document.getElementById("pass").value;
+        if(!input.match(pass)) {
+            alert('Hasło musi zawierac minimum 8 znaków, w tym minimum 1 literę oraz cyfrę.')
+            event.preventDefault();
+        }
+    }
+</script>
 <form th:action="@{/user/add}" th:object="${user}" method="post">
     <p>Imię: <input type="text" th:field="*{firstName}"/>
     <p class="error" th:errors="*{firstName}"></p>
@@ -11,9 +22,9 @@
     <p class="error" th:errors="*{lastName}"></p>
     <p>Nazwa użytkownika: <input type="text" th:field="*{username}"/>
     <p class="error" th:errors="*{username}"></p>
-    <p>Hasło: <input type="text" th:field="*{password}"/>
+    <p>Hasło: <input type="password" id="pass" th:field="*{password}"/>
     <p class="error" th:errors="*{password}"></p>
-    <p><input type="submit" value="Submit"/></p>
+    <p><input type="submit" value="Submit" th:onclick="'javascript:checkPassword(event)'"/></p>
 </form>
 </body>
 </html>

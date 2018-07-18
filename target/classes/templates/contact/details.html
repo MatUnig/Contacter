@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h3>Contact details</h3>
+<h3>Szczegóły kontaktów</h3>
 <table>
 <div th:object="${thisContact}">
-    <p>First name: <span th:text="*{firstName}"/></p>
-    <p>Last name: <span th:text="*{lastName}"/></p>
+    <p>Imię: <span th:text="*{firstName}"/></p>
+    <p>Nazwisko: <span th:text="*{lastName}"/></p>
     <p>E-mail:  <span th:text="*{email}"/></p>
-    <p>Password: <span th:="*{password}"/></p>
-    <p>Category: <span th:text="*{category}"/></p>
-    <p>Subcategory: <span th:text="*{subcategory}"/></p>
-    <p>Phone number: <span th:text="*{phone}"/></p>
-    <p>Birthday: <span th:text="*{birthday}"/></p>
-    <a th:href="@{/contact/delete/{id}/(id=*{id})}">Delete</a>
-    <a th:href="@{/contact/update/{id}/(id=*{id})}">Edit</a>
-    <a th:href="@{/contact/short}">Back</a>
+    <p>Hasło: <span th:="*{password}"/></p>
+    <p>Kategoria: <span th:text="*{category}"/></p>
+    <p>Podkategoria: <span th:text="*{subcategory}"/></p>
+    <p>Numer komórkowy: <span th:text="*{phone}"/></p>
+    <p>Data urodzenia: <span th:text="*{birthday}"/></p>
+    <a th:href="@{/contact/delete/{id}/(id=*{id})}">Usuń</a>
+    <a th:href="@{/contact/update/{id}/(id=*{id})}">Edytuj</a>
+    <a th:href="@{/contact/short}">Powrót</a>
 </div>
 </table>
 </body>

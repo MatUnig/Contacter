@@ -23,7 +23,6 @@ public class User {
     @NotBlank
     private String username;
     @NotBlank
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Hasło musi zawierac minimum 8 znaków, 1 cyfrę, 1 wielką literę oraz jeden znak specjalny")
     private String password;
     private int enabled;
     @ManyToMany(cascade = {

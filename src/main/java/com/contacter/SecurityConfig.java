@@ -31,42 +31,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new SpringDataUserDetailsService();
     }
 
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication().dataSource(dataSource)
-//                .passwordEncoder(passwordEncoder());
-//    }
-
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user").password("user").roles("USER")
-//                .and()
-//                .withUser("admin1").password("admin123").roles("ADMIN");
-//    }
-
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/add-user", "/home", "/login", "/registerProcess", "/registered").permitAll()
-//                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
-//                .anyRequest().authenticated()
-//                .and().formLogin().loginPage("/login")
-//                .permitAll()
-//                .defaultSuccessUrl("/homePage")
-//                .failureUrl("/loginPage?error")
-//                .and().logout().logoutSuccessUrl("/")
-//                .permitAll()
-//                .and().exceptionHandling().accessDeniedPage("/403");
-//    }
-@Override
-protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests()
-            .antMatchers("/admin/**").hasAnyRole("ADMIN")
-            .anyRequest().permitAll()
-            .and().formLogin().loginPage("/login").defaultSuccessUrl("/contact/short")
-            .and().logout().logoutSuccessUrl("/logout")
-            .permitAll()
-            .and().exceptionHandling().accessDeniedPage("/403");
-}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .anyRequest().permitAll()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/contact/short")
+                .and().logout().logoutSuccessUrl("/logout")
+                .permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403");
+    }
 }
