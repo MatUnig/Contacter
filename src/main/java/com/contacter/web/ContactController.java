@@ -1,7 +1,6 @@
 package com.contacter.web;
 
 import com.contacter.entity.Contact;
-import com.contacter.entity.Subcategory;
 import com.contacter.repository.ContactRepository;
 import com.contacter.repository.SubcategoryRepository;
 import org.springframework.stereotype.Controller;
@@ -11,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+/**
+ * Kontroler odpowiadający za CRUD do kontaktów.
+ */
 @Controller
 @RequestMapping("/contact")
 public class ContactController {
@@ -56,6 +58,7 @@ public class ContactController {
     @GetMapping("/update/{id}")
     public String showUpdate(Model model, @PathVariable long id) {
         model.addAttribute("contact", contactRepository.findOne(id));
+        model.addAttribute("subcategory", subcategoryRepository.findAll());
         return "contact/form";
     }
     @GetMapping("/delete/{id}")

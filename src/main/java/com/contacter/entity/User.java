@@ -8,6 +8,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
+/**
+ * Encja, dzięki której tworzeni są użytkownicy do bazy danych.
+ */
 @Entity(name = "users")
 public class User {
     @Id

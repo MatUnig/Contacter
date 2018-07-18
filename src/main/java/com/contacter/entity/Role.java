@@ -2,6 +2,10 @@ package com.contacter.entity;
 
 import javax.persistence.*;
 
+/**
+ * Role dostępu dla użytkowników.
+ * Aktualnie zawiera jedynie rolę USER - Do rozbudowy przy rozwoju aplikacji.
+ */
 @Entity
 @Table(name = "role")
 public class Role {

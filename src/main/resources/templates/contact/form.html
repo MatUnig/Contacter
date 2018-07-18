@@ -16,7 +16,7 @@
     <p class="error" th:errors="*{lastName}"></p>
     <p>E-mail: <input type="email" th:field="*{email}"/></p>
     <p class="error" th:errors="*{email}"></p>
-    <p>Hasło: <input type="password" th:field="*{password}"/></p>
+    <p>Hasło: <input type="password" id="pass"  th:field="*{password}"/></p>
     <p class="error" th:errors="*{password}"></p>
     <p>Kategoria: </p>
     <select th:id="options" th:field="*{category}" th:onchange="'javascript:selector()'">

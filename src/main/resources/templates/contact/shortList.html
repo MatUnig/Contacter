@@ -3,18 +3,10 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8">
+    <script type="text/javascript" th:src="@{/js/function.js}"></script>
 </head>
 <body>
-<script type="text/javascript">
-    function toggle_visibility(hide) {
-        var e = document.getElementsByClassName(hide);
-        for (var i = 0; i < e.length; i++){
-        if(e[i].style.display == '')
-            e[i].style.display = 'none';
-        else
-            e[i].style.display = '';
-    }}
-</script>
+
 <div>
     <table>
         <tr th:each="contact: ${contacts}">
@@ -25,7 +17,7 @@
             <td th:class="${contact.id}" style="display: none;" th:text="${contact.subcategory}"/>
             <td th:class="${contact.id}" style="display: none;" th:text="${contact.phone}"/>
             <td th:class="${contact.id}" style="display: none;" th:text="${contact.birthday}"/>
-            <td><button th:onclick="'javascript:toggle_visibility(\'' + ${contact.id} + '\');'">Pokaż/ukryj szczegóły</button></td>
+            <td><button th:onclick="'javascript:toggleVisibility(\'' + ${contact.id} + '\');'">Pokaż/ukryj szczegóły</button></td>
             <td sec:authorize="isAuthenticated()">
                 <a th:href="@{/contact/details/{id}/(id=${contact.id})}">Pełny widok kontaktu</a>
                 <a th:href="@{/contact/update/{id}/(id=${contact.id})}">Edytuj</a>

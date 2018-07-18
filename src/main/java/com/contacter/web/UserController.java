@@ -9,7 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
+/**
+ * Kontroler pozwalający na operacje związane z logowaniem i rejestracją użytkowników.
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {

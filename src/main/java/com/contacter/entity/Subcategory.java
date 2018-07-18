@@ -2,6 +2,9 @@ package com.contacter.entity;
 
 import javax.persistence.*;
 
+/**
+ * Encja zawierająca podkategorie.
+ */
 @Entity
 @Table(name = "subcategory")
 public class Subcategory {

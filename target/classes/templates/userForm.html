@@ -2,21 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
-    <script type="text/javascript" th:src="@{/static/js/function.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script type="text/javascript" th:src="@{/js/function.js}"></script>
 </head>
 <body>
-<!--<script>-->
-    <!--function checkPassword(event)-->
-    <!--{-->
-        <!--var pass=  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;-->
-        <!--var input= document.getElementById("pass").value;-->
-        <!--if(!input.match(pass)) {-->
-            <!--alert('Hasło musi zawierac minimum 8 znaków, w tym minimum 1 literę oraz cyfrę.')-->
-            <!--event.preventDefault();-->
-        <!--}-->
-    <!--}-->
-<!--</script>-->
 <form th:action="@{/user/add}" th:object="${user}" method="post">
     <p>Imię: <input type="text" th:field="*{firstName}"/>
     <p class="error" th:errors="*{firstName}"></p>

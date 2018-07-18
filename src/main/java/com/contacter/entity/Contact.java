@@ -7,6 +7,10 @@ import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.sql.Date;
 
+/**
+ * Encja do tworzenia kontaktów, zarówno w klasie jak i bazie danych.
+ * Jest to główny obiekt aplikacji.
+ */
 @Entity
 public class Contact {
     @Id

@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Implementacja serwisu użytkownika, zapisującego użytkowników do systemu.
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
