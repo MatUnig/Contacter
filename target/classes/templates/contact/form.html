@@ -2,27 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script type="text/javascript" th:src="@{/js/function.js}"></script>
 </head>
 <body>
-<script>
-    function selector() {
-        var category = document.getElementById("options").value;
-        var business = document.getElementById("selected")
-        var other = document.getElementById("other")
-        if (category === "służbowy") {
-            business.removeAttribute("disabled");
-            other.disabled = true;
-        }
-        else if (category === "prywatny") {
-            business.disabled = true;
-            other.disabled = true;
-        }
-        else if (category === "inny") {
-            other.removeAttribute("disabled");
-            business.disabled = true;
-        }
-    }
-</script>
+<!--<script>-->
+    <!--function selector() {-->
+        <!--var category = document.getElementById("options").value;-->
+        <!--var business = document.getElementById("selected")-->
+        <!--var other = document.getElementById("other")-->
+        <!--if (category === "służbowy") {-->
+            <!--business.removeAttribute("disabled");-->
+            <!--other.disabled = true;-->
+        <!--}-->
+        <!--else if (category === "prywatny") {-->
+            <!--business.disabled = true;-->
+            <!--other.disabled = true;-->
+        <!--}-->
+        <!--else if (category === "inny") {-->
+            <!--other.removeAttribute("disabled");-->
+            <!--business.disabled = true;-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
 <div>Contact Form
 </div>
 <form th:action="@{/contact/add}" th:object="${contact}" method="post">
