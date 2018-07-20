@@ -10,8 +10,9 @@ J2EE
 
 Maven - facilitating the configuration of the project and libraries managment
 
-Spring (Core - depdendencies injection; 
+Spring 
 
+       (Core - depdendencies injection; 
         MVC - providing components to build Model-View-Controller app;
         Boot - facilitating server configuration;
         Security - authorization and authentication;
