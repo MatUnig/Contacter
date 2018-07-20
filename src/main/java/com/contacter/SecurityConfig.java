@@ -11,8 +11,8 @@ import org.springframework.security.config.annotation
         .web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
 import javax.sql.DataSource;
+
 
 @Configuration
 @EnableWebSecurity
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .anyRequest().permitAll()
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/contact/short")  //Ustawienie strony logowania i po zalogowaniu
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/contact/short")
                 .and().logout().logoutSuccessUrl("/logout")
                 .permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");

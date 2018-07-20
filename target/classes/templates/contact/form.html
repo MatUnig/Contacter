@@ -16,7 +16,7 @@
     <p class="error" th:errors="*{lastName}"></p>
     <p>E-mail: <input type="email" th:field="*{email}"/></p>
     <p class="error" th:errors="*{email}"></p>
-    <p>Hasło: <input type="password" th:field="*{password}"/></p>
+    <p>Hasło: <input type="password" id="pass"  th:field="*{password}"/></p>
     <p class="error" th:errors="*{password}"></p>
     <p>Kategoria: </p>
     <select th:id="options" th:field="*{category}" th:onchange="'javascript:selector()'">
@@ -35,7 +35,7 @@
     <p class="error" th:errors="*{phone}"></p>
     <p>Data urodzenia: <input type="date" th:field="*{birthday}"/></p>
     <p class="error" th:errors="*{birthday}"></p>
-    <p><input type="submit" value="Submit"/></p>
+    <p><input type="submit" value="Submit" th:onclick="'javascript:checkPassword(event)'"/></p>
 </form>
 </div>
 <a th:href="@{/contact/short}">Powrót do kontaktów</a>

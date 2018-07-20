@@ -35,7 +35,7 @@
     <p class="error" th:errors="*{phone}"></p>
     <p>Data urodzenia: <input type="date" th:field="*{birthday}"/></p>
     <p class="error" th:errors="*{birthday}"></p>
-    <p><input type="submit" value="Submit"/></p>
+    <p><input type="submit" value="Submit" th:onclick="'javascript:checkPassword(event)'"/></p>
 </form>
 </div>
 <a th:href="@{/contact/short}">Powrót do kontaktów</a>

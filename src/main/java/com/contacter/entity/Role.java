@@ -7,7 +7,6 @@ import javax.persistence.*;
  * Aktualnie zawiera jedynie rolę USER - Do rozbudowy przy rozwoju aplikacji.
  */
 @Entity
-@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
